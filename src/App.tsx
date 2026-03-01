@@ -3274,6 +3274,14 @@ export default function App() {
 
             let tarikhMula = lowerRow["tarikh mula"] || "";
             let tarikhTamat = lowerRow["tarikh tamat"] || "";
+            
+            // Normalize dates to ISO format (YYYY-MM-DD) for consistent comparison
+            if (tarikhMula) tarikhMula = parseDateToISO(tarikhMula);
+            if (tarikhTamat) tarikhTamat = parseDateToISO(tarikhTamat);
+            
+            // If tarikhTamat is empty, assume it's the same as tarikhMula
+            if (!tarikhTamat && tarikhMula) tarikhTamat = tarikhMula;
+
             const tempoh = lowerRow["mode"] || lowerRow["tempoh"] || "";
             const timestamp = lowerRow["timestamp"] || lowerRow["masa"] || "";
 
