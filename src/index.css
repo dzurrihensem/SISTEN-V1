@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Arial", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Arial", sans-serif;
+}
+
+:root {
+  --bg-color: #f8fafc;
+  --text-main: #1e293b;
+  --accent-color: #4f46e5;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+}
+
+.dark {
+  --bg-color: #0f172a;
+  --text-main: #f1f5f9;
+  --accent-color: #6366f1;
+  --border-color: #1e293b;
+  --card-bg: #1e293b;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-feature-settings: "cv11", "ss01", "cv08";
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Formal Typography */
+.serif {
+  font-family: var(--font-serif);
+}
+
+/* Interactive Background */
+.bg-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(236, 72, 153, 0.05) 0px, transparent 50%);
+}
+
+/* Formal Card */
+.formal-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formal-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+}
+
+/* Interactive Button */
+.btn-formal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-formal-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.btn-formal-primary:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.btn-formal-secondary {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.btn-formal-secondary:hover {
+  background-color: var(--border-color);
+}
+
+/* Glass Panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Sidebar Item */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--text-main);
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.sidebar-item:hover, .sidebar-item.active {
+  opacity: 1;
+  background-color: rgba(79, 70, 229, 0.1);
+  color: var(--accent-color);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Dark Mode Overrides for Hardcoded Tailwind Classes */
+.dark .text-slate-800, .dark .text-slate-700, .dark .text-slate-600 {
+  color: #f1f5f9 !important;
+}
+.dark .text-slate-500, .dark .text-slate-400 {
+  color: #cbd5e1 !important;
+}
+.dark .bg-white {
+  background-color: #1e293b !important;
+}
+.dark .bg-slate-50, .dark .bg-slate-100 {
+  background-color: #0f172a !important;
+}
+.dark .border-slate-100, .dark .border-slate-200 {
+  border-color: #334155 !important;
+}
+.dark .bg-indigo-50 {
+  background-color: rgba(49, 46, 129, 0.3) !important;
+}
+.dark .text-indigo-600 {
+  color: #818cf8 !important;
+}
+.dark .text-indigo-700 {
+  color: #a5b4fc !important;
+}
+.dark .bg-indigo-100 {
+  background-color: rgba(49, 46, 129, 0.5) !important;
+}
+.dark .bg-red-50 {
+  background-color: rgba(127, 29, 29, 0.3) !important;
+}
+.dark .text-red-600 {
+  color: #f87171 !important;
+}
+.dark .bg-blue-50 {
+  background-color: rgba(30, 58, 138, 0.3) !important;
+}
+.dark .text-blue-600 {
+  color: #60a5fa !important;
+}
+.dark .bg-amber-50 {
+  background-color: rgba(120, 53, 15, 0.3) !important;
+}
+.dark .text-amber-600 {
+  color: #fbbf24 !important;
+}
+.dark .bg-teal-50 {
+  background-color: rgba(19, 78, 74, 0.3) !important;
+}
+.dark .text-teal-600 {
+  color: #2dd4bf !important;
+}
+.dark .bg-emerald-50 {
+  background-color: rgba(6, 78, 59, 0.3) !important;
+}
+.dark .text-emerald-600 {
+  color: #34d399 !important;
+}
+.dark .bg-pink-50 {
+  background-color: rgba(131, 24, 67, 0.3) !important;
+}
+.dark .text-pink-600 {
+  color: #f472b6 !important;
+}
+
+/* Ensure images have a readable background if they are transparent */
+.dark img {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+}
